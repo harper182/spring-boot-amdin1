@@ -1,0 +1,1 @@
+include('spring-boot-admin','spring-boot-client')

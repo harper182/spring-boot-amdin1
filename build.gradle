@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.0.RELEASE'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.12'
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('com.google.guava:guava:18.0')
+        compile('org.apache.commons:commons-collections4:4.0')
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+        compile group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '4.7'
+        //TODO:version 1.7 has some bug with logstash, wait version 1.8
+        compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.6'
+        compile group: 'ch.qos.logback', name: 'logback-core', version: '1.1.6'
+        compile group: 'de.codecentric', name: 'spring-boot-admin-server', version: '1.4.6'
+        compile group: 'de.codecentric', name: 'spring-boot-admin-server-ui', version: '1.4.6'
+        compile group: 'de.codecentric', name: 'spring-boot-admin-server-ui-login', version: '1.4.6'
+        compile group: 'de.codecentric', name: 'spring-boot-starter-security', version: '1.4.6'
+        compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '1.4.6'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '1.4.4.RELEASE'
+
+    }
+}
+
+
